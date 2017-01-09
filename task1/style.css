@@ -1,41 +1,120 @@
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: sans-serif;
-  line-height: 1.6em;
+    font-family: sans-serif;
+    line-height: 1.6em;
 }
 
 .subtask {
-  margin: 20px 0;
-  border: 1px solid lightblue;
-  border-radius: 8px;
-  padding: 16px;
+    margin: 20px 0;
+    border: 1px solid lightblue;
+    border-radius: 8px;
+    padding: 16px;
 }
 
 ul {
-  padding: 0;
-  margin: 0;
-  font-family: sans-serif;
-  color: white;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    color: white;
 }
 
 ul > li {
-  list-style-type: none;
-  padding: 20px;
-  float: left;
-  background-color: lightpink;
-  width: calc(100%/6);
+    list-style-type: none;
+    padding: 20px;
+    float: left;
+    background-color: lightpink;
+    width: calc(100% / 6);
 }
 
 ul > li img {
-  margin: 0 auto;
-  display: block;
+    margin: 0 auto;
+    display: block;
 }
 
 .clearfix {
-  clear: both;
+    clear: both;
 }
 
 /* Вашият CSS от тук надолу */
+/*1.a*/
+
+@media all and (max-width: 999px){
+
+    ul > li {
+        width: calc(100%/3);
+    }
+}
+@media all and (max-width: 599px){
+    ul > li {
+        width: calc(100%/2);
+    }
+}
+@media all and (max-width: 399px){
+    ul > li {
+        width: calc(100%/1);
+    }
+}
+
+/*1.b*/
+
+ul > li:nth-child(even){
+    background-color: lightblue;
+}
+/**1.c*!*/
+ul > li:hover{
+    background-color: lightblue;
+    -webkit-transition-duration: 1s;
+    -moz-transition-duration: 1s;
+    -o-transition-duration: 1s;
+    transition-duration: 1s;
+
+    -webkit-transform:rotate(180deg);
+    -moz-transform:rotate(180deg);
+    -o-transform:rotate(180deg);
+    cursor: pointer;
+}
+
+/*1d-това сигурно не е така*/
+
+ul {
+
+    position: relative;
+}
+
+li::after {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+li > * {
+    z-index: 10;
+}
+
+
+/*1e*/
+
+li::after {
+    content: "IMAGINE THAT!";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+
+}
+
